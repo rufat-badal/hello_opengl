@@ -1,0 +1,32 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-std=c17",
+      "-Wall",
+      "-I/Users/rufat/Development/Includes",
+      "-c",
+      "-o",
+      "build/main.o",
+      "src/main.c"
+    ],
+    "directory": "/Users/rufat/Development/hello_opengl",
+    "file": "/Users/rufat/Development/hello_opengl/src/main.c",
+    "output": "/Users/rufat/Development/hello_opengl/build/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang",
+      "-std=c17",
+      "-Wall",
+      "-I/Users/rufat/Development/Includes",
+      "-c",
+      "-o",
+      "build/glad.o",
+      "src/glad.c"
+    ],
+    "directory": "/Users/rufat/Development/hello_opengl",
+    "file": "/Users/rufat/Development/hello_opengl/src/glad.c",
+    "output": "/Users/rufat/Development/hello_opengl/build/glad.o"
+  }
+]
