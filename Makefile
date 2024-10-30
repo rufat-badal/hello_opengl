@@ -1,36 +1,37 @@
-# Project directories
+CC = clang
+CXX = clang++
+
+INCLUDES = /Users/rufat/Development/Includes
+LIBRARIES = /Users/rufat/Development/Libs
+
+CFLAGS = -std=c11 -Wall -I$(INCLUDES)
+CXXFLAGS = -std=c++17 -Wall -I$(INCLUDES)
+LDFLAGS = -L$(LIBRARIES) -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
+
 SRC_DIR = src
 BUILD_DIR = build
-INCLUDE_DIR = /Users/rufat/Development/Includes
-LIB_DIR = /Users/rufat/Development/Libs
 
-# Compiler and linker
-CC = clang
-CFLAGS = -std=c17 -Wall -I$(INCLUDE_DIR)
-LDFLAGS = -L$(LIB_DIR) -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit
-
-# Project files
-SOURCES = $(SRC_DIR)/main.c $(SRC_DIR)/glad.c
-OBJECTS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SOURCES))
+CPP_SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJECTS = $(BUILD_DIR)/glad.o $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(CPP_SOURCES))
 TARGET = $(BUILD_DIR)/hello_opengl
 
-# Default target
-all: $(TARGET)
+all: build_dir $(TARGET)
 
-# Build the executable
+# Ensure build directory exists
+build_dir:
+	@mkdir -p $(BUILD_DIR)
+
 $(TARGET): $(OBJECTS)
-	@mkdir -p $(BUILD_DIR)
-	$(CC) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
 
-# Compile source files to object files
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(BUILD_DIR)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/glad.o: $(SRC_DIR)/glad.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Clean build files
 clean:
 	rm -rf $(BUILD_DIR)
 
-# Run the project
 run: $(TARGET)
 	./$(TARGET)

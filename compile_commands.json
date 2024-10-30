@@ -2,22 +2,7 @@
   {
     "arguments": [
       "/usr/bin/clang",
-      "-std=c17",
-      "-Wall",
-      "-I/Users/rufat/Development/Includes",
-      "-c",
-      "-o",
-      "build/main.o",
-      "src/main.c"
-    ],
-    "directory": "/Users/rufat/Development/hello_opengl",
-    "file": "/Users/rufat/Development/hello_opengl/src/main.c",
-    "output": "/Users/rufat/Development/hello_opengl/build/main.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/clang",
-      "-std=c17",
+      "-std=c11",
       "-Wall",
       "-I/Users/rufat/Development/Includes",
       "-c",
@@ -28,5 +13,20 @@
     "directory": "/Users/rufat/Development/hello_opengl",
     "file": "/Users/rufat/Development/hello_opengl/src/glad.c",
     "output": "/Users/rufat/Development/hello_opengl/build/glad.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++",
+      "-std=c++17",
+      "-Wall",
+      "-I/Users/rufat/Development/Includes",
+      "-c",
+      "-o",
+      "build/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/Users/rufat/Development/hello_opengl",
+    "file": "/Users/rufat/Development/hello_opengl/src/main.cpp",
+    "output": "/Users/rufat/Development/hello_opengl/build/main.o"
   }
 ]
