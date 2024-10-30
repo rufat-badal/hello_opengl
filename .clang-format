@@ -1,0 +1,11 @@
+---
+# options: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+BasedOnStyle: LLVM
+IndentWidth: 4
+# spaces, not tabs!
+UseTab: Never
+# if (x) doStuff()  is not allowed, bad style
+AllowShortIfStatementsOnASingleLine: false
+# 
+AlignTrailingComments: true
+SpacesBeforeTrailingComments: 3

@@ -1,6 +1,6 @@
-#include <stdio.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <stdio.h>
 
 int main(void) {
     // Initialize GLFW
@@ -10,7 +10,7 @@ int main(void) {
     }
 
     // Create a windowed mode window and its OpenGL context
-    GLFWwindow* window = glfwCreateWindow(800, 600, "Hello OpenGL", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(800, 600, "Hello OpenGL", NULL, NULL);
     if (!window) {
         fprintf(stderr, "Failed to open GLFW window\n");
         glfwTerminate();
