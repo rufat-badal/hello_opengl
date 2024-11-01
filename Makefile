@@ -6,7 +6,7 @@ LIBRARIES = /Users/rufat/Development/Libs
 
 CFLAGS = -std=c11 -Wall -I$(INCLUDES)
 CXXFLAGS = -std=c++17 -Wall -I$(INCLUDES)
-LDFLAGS = -L$(LIBRARIES) -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
+LDFLAGS = -L$(LIBRARIES) -lglfw3 -framework Cocoa -framework QuartzCore -framework OpenGL -framework IOKit
 
 SRC_DIR = src
 BUILD_DIR = build
