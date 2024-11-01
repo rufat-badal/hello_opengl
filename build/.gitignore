@@ -1,0 +1,4 @@
+# Ignore everything
+*
+# Unignore the .gitignore file itself
+!.gitignore
