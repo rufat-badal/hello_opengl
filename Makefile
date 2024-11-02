@@ -31,8 +31,8 @@ $(BUILD_DIR)/glad.o: $(SRC_DIR)/glad.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm $(BUILD_DIR)/*.o
-	rm $(TARGET)
+	rm -f $(BUILD_DIR)/*.o
+	rm -f $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET)
