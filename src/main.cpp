@@ -32,5 +32,10 @@ int main(void) {
     // The callback function will be also called on first display.
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
+    while(!glfwWindowShouldClose(window)) {
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+
     return 0;
 }
