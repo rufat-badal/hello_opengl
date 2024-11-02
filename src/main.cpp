@@ -7,6 +7,15 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
+void process_input(GLFWwindow *window) {
+    // Close window when ESC is pressed.
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        // This does not directly close the window.
+        // When the execution arrives at the next check of glfwWindowShould close, the window will be closed.
+        glfwSetWindowShouldClose(window, true);
+    }
+}
+
 int main(void) {
     glfwInit();
     // We will use OpenGL 3.3
@@ -33,6 +42,8 @@ int main(void) {
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     while (!glfwWindowShouldClose(window)) {
+        process_input(window);
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
