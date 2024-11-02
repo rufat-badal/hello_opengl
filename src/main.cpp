@@ -37,5 +37,6 @@ int main(void) {
         glfwPollEvents();
     }
 
+    glfwTerminate();
     return 0;
 }
