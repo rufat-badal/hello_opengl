@@ -1,3 +1,5 @@
 .DS_Store
 .cache/
 compile_commands.json
+x64/
+HelloOpenGL/
