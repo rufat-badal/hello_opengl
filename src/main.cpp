@@ -41,8 +41,15 @@ int main(void) {
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     while (!glfwWindowShouldClose(window)) {
+        // input
         process_input(window);
 
+        // rendering commands
+        // clear screen with a green-blueish color
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        // check and call events and swap buffers (double buffering)
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
