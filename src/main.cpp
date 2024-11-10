@@ -4,6 +4,10 @@
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
+    // Recolor the background also here to keep the whole window colored during resizing
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glfwSwapBuffers(window);
 }
 
 void process_input(GLFWwindow *window) {
