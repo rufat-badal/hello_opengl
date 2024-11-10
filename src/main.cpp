@@ -10,7 +10,8 @@ void process_input(GLFWwindow *window) {
     // Close window when ESC is pressed.
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         // This does not directly close the window.
-        // When the execution arrives at the next check of glfwWindowShouldClose, the window will be closed.
+        // When the execution arrives at the next check of
+        // glfwWindowShouldClose, the window will be closed.
         glfwSetWindowShouldClose(window, true);
     }
 }
@@ -22,7 +23,10 @@ int main(void) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+// Apple requires the use of forward-compatible OpenGL contexts
+#ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
 
     GLFWwindow *window = glfwCreateWindow(800, 600, "Hello OpenGL", NULL, NULL);
     if (window == NULL) {
