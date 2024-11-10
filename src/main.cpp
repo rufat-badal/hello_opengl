@@ -1,24 +1,17 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
 #include <iostream>
 
-void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
-    glViewport(0, 0, width, height);
-    // Recolor the background also here to keep the whole window colored during resizing
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    glfwSwapBuffers(window);
-}
+void framebuffer_size_callback(GLFWwindow *window, int width, int height);
+void process_input(GLFWwindow *window);
 
-void process_input(GLFWwindow *window) {
-    // Close window when ESC is pressed.
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-        // This does not directly close the window.
-        // When the execution arrives at the next check of
-        // glfwWindowShouldClose, the window will be closed.
-        glfwSetWindowShouldClose(window, true);
-    }
-}
+const int SCREEN_WIDTH = 1200;
+const int SCREEN_HEIGHT = 900;
+const float BACKGROUND_COLOR_R = 0.2f;
+const float BACKGROUND_COLOR_G = 0.3f;
+const float BACKGROUND_COLOR_B = 0.3f;
+const float BACKGROUND_COLOR_A = 1.0f;
 
 int main(void) {
     glfwInit();
@@ -32,7 +25,7 @@ int main(void) {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    GLFWwindow *window = glfwCreateWindow(800, 600, "Hello OpenGL", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Hello OpenGL", NULL, NULL);
     if (window == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -56,7 +49,7 @@ int main(void) {
 
         // rendering commands
         // clear screen with a green-blueish color
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B, BACKGROUND_COLOR_A);
         glClear(GL_COLOR_BUFFER_BIT);
 
         // check and call events and swap buffers (double buffering)
@@ -66,4 +59,22 @@ int main(void) {
 
     glfwTerminate();
     return 0;
+}
+
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+    glViewport(0, 0, width, height);
+    // Recolor the background also here to keep the whole window colored during resizing
+    glClearColor(BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B, BACKGROUND_COLOR_A);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glfwSwapBuffers(window);
+}
+
+void process_input(GLFWwindow *window) {
+    // Close window when ESC is pressed.
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        // This does not directly close the window.
+        // When the execution arrives at the next check of
+        // glfwWindowShouldClose, the window will be closed.
+        glfwSetWindowShouldClose(window, true);
+    }
 }
