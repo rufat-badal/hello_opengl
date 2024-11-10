@@ -25,7 +25,8 @@ int main(void) {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    GLFWwindow *window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Hello OpenGL", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT,
+                                          "Hello OpenGL", NULL, NULL);
     if (window == NULL) {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -49,7 +50,8 @@ int main(void) {
 
         // rendering commands
         // clear screen with a green-blueish color
-        glClearColor(BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B, BACKGROUND_COLOR_A);
+        glClearColor(BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B,
+                     BACKGROUND_COLOR_A);
         glClear(GL_COLOR_BUFFER_BIT);
 
         // check and call events and swap buffers (double buffering)
@@ -63,8 +65,10 @@ int main(void) {
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
-    // Recolor the background also here to keep the whole window colored during resizing
-    glClearColor(BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B, BACKGROUND_COLOR_A);
+    // Recolor the background also here to keep the whole window colored during
+    // resizing
+    glClearColor(BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B,
+                 BACKGROUND_COLOR_A);
     glClear(GL_COLOR_BUFFER_BIT);
     glfwSwapBuffers(window);
 }
