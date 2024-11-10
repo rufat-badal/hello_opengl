@@ -3,16 +3,14 @@ CXX = clang++
 
 UNAME_S := $(shell uname -s)
 
-ifeq ($(UNAME_S), Darwin) # We must be on macOS	
-	HOME_FOLDER = /Users/rufat
+ifeq ($(UNAME_S), Darwin) # We must be on macOS
 	LDFLAGS_OS_SPECIFIC = -framework Cocoa -framework QuartzCore -framework OpenGL -framework IOKit
 else ifeq ($(UNAME_S), Linux) # We must be on Linux
-	HOME_FOLDER = /home/rufat
 	LDFLAGS_OS_SPECIFIC = -lGL -lX11 -lpthread -lXrandr -lXi -ldl
 endif
 
-INCLUDES = $(HOME_FOLDER)/Development/Includes
-LIBRARIES = $(HOME_FOLDER)/Development/Libs
+INCLUDES = $(CURDIR)/deps/Includes
+LIBRARIES = $(CURDIR)/deps/Libs
 LDFLAGS = -L$(LIBRARIES) -lglfw3 $(LDFLAGS_OS_SPECIFIC)
 
 CFLAGS = -std=c11 -Wall -I$(INCLUDES)
