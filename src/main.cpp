@@ -36,6 +36,8 @@ int main(void) {
         std::cout << "Failed to initialize GLAD" << std::endl;
     }
 
+    std::cout << glGetString(GL_VERSION) << std::endl;
+
     // Adjusts the OpenGL viewport everytime the window gets resized.
     // The callback function will be also called on first display.
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
