@@ -10,7 +10,7 @@ void process_input(GLFWwindow *window) {
     // Close window when ESC is pressed.
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         // This does not directly close the window.
-        // When the execution arrives at the next check of glfwWindowShould close, the window will be closed.
+        // When the execution arrives at the next check of glfwWindowShouldClose, the window will be closed.
         glfwSetWindowShouldClose(window, true);
     }
 }
