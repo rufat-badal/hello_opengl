@@ -6,8 +6,8 @@
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void process_input(GLFWwindow *window);
 
-const int SCREEN_WIDTH = 1200;
-const int SCREEN_HEIGHT = 900;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 const float BACKGROUND_COLOR_R = 0.2f;
 const float BACKGROUND_COLOR_G = 0.3f;
 const float BACKGROUND_COLOR_B = 0.3f;
